@@ -1,27 +1,9 @@
-<table class="table table-striped">
-        <thead>
-                <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Body</th>
-                        <th scope="col">Action</th>
-                </tr>
-        </thead>
-        <tbody>
-                <tr *ngFor='let post of posts' [post]="post">
-                <th scope="row">{{post.id}}</th>
+<app-post-item 
+  [posts]="posts"
+  (deletePost)="deletePost($event)"
+  (updatePost)="updatePost($event)"
+  >
+</app-post-item>
 
-                <td *ngIf='!updatePostClicked' (click)='updateClicked(post.id)'> {{post.title}}</td>
-                <td *ngIf='updatePostClicked'><input type=text></td>
-
-                <td> {{post.body}}</td>
-                <!-- <td  *ngIf='updatePostClicked'><input type=text></td> -->
-
-                <td><button (click)=updatePost(post)>Update</button></td>
-                
-                <td><button (click)="deletePost(post)">Delete</button></td>
-                </tr>
-        </tbody>
-</table>
-<button *ngIf='!addPostClicked' (click)='addPostClicked=true'>Add post</button>
-<app-create-posts *ngIf='addPostClicked' (addPost)="addPost($event)"></app-create-posts>
+<button routerLink="/create" >Add post</button>
+<!-- <app-create-posts (addPost)="addPost($event)"></app-create-posts></button> -->

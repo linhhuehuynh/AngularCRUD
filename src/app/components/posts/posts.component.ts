@@ -9,10 +9,8 @@ import {Post} from '../../models/Post';
 })
 export class PostsComponent implements OnInit {
   posts:Post[];
-  addPostClicked:boolean=false;
-  updatePostClicked:boolean=false;
 
-
+  
   constructor(private postService:PostService) { }
 
   ngOnInit() {
@@ -25,7 +23,6 @@ export class PostsComponent implements OnInit {
   addPost(post:Post){
     this.postService.addPost(post).subscribe(post => {
       this.posts.push(post);
-      this.addPostClicked=false;
     })
   }
   
@@ -34,13 +31,6 @@ export class PostsComponent implements OnInit {
     this.postService.updatePost(post).subscribe(post => {
       console.log(post)
     })
-  }
-
-  updateClicked(id){
-    let found = this.posts.find(p => p.id = id);
-    console.log(found)
-    found.updateToggle = true;
-    this.updatePostClicked =true;
   }
 
   deletePost(post:Post){

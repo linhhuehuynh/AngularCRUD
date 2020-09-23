@@ -21,7 +21,7 @@ export class PostService {
   }
   
   addPost(post:Post):Observable<Post>{
-    return this.http.post<Post>(this.postsUrl, post, httpOptions);
+    return this.http.post<Post>(`${this.postsUrl}`, post, httpOptions);
   }
 
   updatePost(post:Post):Observable<any>{

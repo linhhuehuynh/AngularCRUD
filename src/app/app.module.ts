@@ -8,15 +8,20 @@ import { AppComponent } from './app.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreatePostsComponent } from './components/create-posts/create-posts.component';
+import { UpdatePostsComponent } from './components/update-posts/update-posts.component';
+import { PostItemComponent } from './components/post-item/post-item.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
     CreatePostsComponent,
+    UpdatePostsComponent,
+    PostItemComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
